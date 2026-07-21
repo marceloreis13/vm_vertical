@@ -46,3 +46,6 @@ app.*.map.json
 
 # LinkedIn series (never versioned)
 linkedin/
+
+# Local Claude Code settings (per-machine)
+.claude/settings.local.json
