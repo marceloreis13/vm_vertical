@@ -15,19 +15,19 @@ It is being built in public, spec-first, using SDD (Spec-Driven Development) wit
 
 ## Built spec-first
 
-Nothing starts as code. Every piece starts as a written proposal in [`openspec/proposes/`](openspec/proposes), gets reviewed and approved, and only then gets implemented. Decisions are documented at the same pace as the development, so the docs stay alive as reusable context.
+Nothing starts as code. Every piece starts as a written brief in [`briefs/`](briefs), which feeds the OpenSpec flow (proposal, spec, design, tasks). Each change is reviewed and approved before implementation, and decisions are documented at the same pace as the development, so the docs stay alive as reusable context.
 
 ## Structure
 
 ```
-apps/                 # final apps, assembled from modules on demand
-packages/             # reusable modules (vm_*)
-openspec/proposes/    # the specs, one per module, numbered in build order
-linkedin/             # the public journey (series brief, backlog, posts)
-docs/                 # living context that grows with each module
+apps/         # final apps, assembled from modules on demand
+packages/     # reusable modules (vm_*)
+briefs/       # numbered module briefs, in build order (input to the SDD flow)
+openspec/     # OpenSpec artifacts: specs (source of truth) + changes
+docs/         # living context that grows with each module
 ```
 
-Planned modules include a shared design system (`vm_storyboard`), networking, local storage, navigation, localization, analytics, logging, auth, config, ads, tabs, notifications and connectivity. See the proposes for the full list and the order they get built.
+Planned modules include a shared design system (`vm_storyboard`), networking, local storage, navigation, localization, analytics, logging, auth, config, ads, tabs, notifications and connectivity. See the briefs for the full list and the order they get built.
 
 ## Proof of the model
 

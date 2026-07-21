@@ -1,6 +1,6 @@
-# Índice de Proposes — vm_core
+# Índice de Briefs — vm_core
 
-Mapa da primeira leva de proposes (SDD / OpenSpec) para a base modular "Lego".
+Mapa da primeira leva de briefs (SDD / OpenSpec) para a base modular "Lego".
 Cada arquivo é um brief independente para alimentar `/opsx:propose`.
 
 ## Visão geral
@@ -11,7 +11,7 @@ Cada módulo é **desacoplado, genérico e standalone** (compila isolado via `ex
 com mocks quando preciso). Todos os apps compartilham a mesma identidade visual
 (vm_storyboard), variando apenas paleta e logo.
 
-## Proposes
+## Briefs
 
 | # | Arquivo | Papel |
 |---|---------|-------|
