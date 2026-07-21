@@ -23,12 +23,13 @@ Testing
 - Widget
 - Golden
 
-# OpenSpec Workflow
+Coding standards (skills)
+These skills define how code is written and are loaded automatically when relevant. Follow them when implementing modules/features (including during /opsx:apply).
+- vm-clean-architecture — layering (presentation/domain/data), dependency rule, DI, barrel, Result/Failure
+- vm-dart-idioms — modern idiomatic Dart (sealed unions, pattern matching, immutability, async)
+- vm-ddd-modular — domain modeling and module boundaries (entities, value objects, aggregates, repositories)
 
-When working with OpenSpec:
+Commits
+- Every commit message has 1 to 2 lines of text.
+- Always concise, clear and objective, written in English.
 
-1. Never execute `/opsx:propose` automatically.
-2. Never create or modify OpenSpec artifacts unless explicitly instructed.
-3. Always present the generated Proposal, Specification, Design or Tasks in the chat first.
-4. Wait for explicit user approval before creating or modifying any OpenSpec files.
-5. Consider OpenSpec artifacts immutable until the user approves the content.
