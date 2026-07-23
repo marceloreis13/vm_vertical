@@ -1,0 +1,31 @@
+name: vm_logging
+description: >
+  Injectable, level-based structured logging module for the vm_core
+  platform: a synchronous, non-throwing `Logger` interface, pluggable sinks
+  with per-sink level thresholds and error isolation, a redaction pipeline
+  (sensitive keys + pluggable redactors), and injected configuration. Hides
+  the destination (console, crash reporting, ...) entirely.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.12.2
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.0.0
+  get_it: ^8.0.0
+  vm_storyboard:
+    path: ../vm_storyboard
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.4.0
+  mocktail: ^1.0.0
+
+flutter:
+  uses-material-design: true
