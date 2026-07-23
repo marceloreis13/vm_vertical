@@ -21,6 +21,22 @@ version: 1.0.0+1
 environment:
   sdk: ^3.12.2
 
+# Pub Workspace: each app under apps/<name> and package under packages/vm_<name>
+# must add its own path here (e.g. "apps/vm_app", "packages/vm_storyboard") and
+# set `resolution: workspace` in its own pubspec.yaml.
+workspace:
+  - packages/vm_storyboard
+  - packages/vm_network
+  - packages/vm_storage
+  - packages/vm_navigation
+  - packages/vm_localization
+  - packages/vm_logging
+  - packages/vm_analytics
+  - packages/vm_config
+  - packages/vm_tabbar
+  - packages/vm_notifications
+  - packages/vm_connectivity
+
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
