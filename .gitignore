@@ -31,7 +31,9 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+**/build/
 /coverage/
+**/test/golden/failures/
 
 # Symbolication related
 app.*.symbols
