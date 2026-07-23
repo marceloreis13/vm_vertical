@@ -1,0 +1,40 @@
+name: vm_localization
+description: >
+  Runtime locale switching and locale-aware formatting for the vm_core
+  platform: injected supported locales/default locale, a Cubit the app's
+  MaterialApp observes, a LocaleRepository with an in-memory default and an
+  optional vm_storage-backed implementation, and intl-based date/number/
+  currency formatting.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.12.2
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_bloc: ^9.0.0
+  freezed_annotation: ^2.4.0
+  get_it: ^8.0.0
+  intl: ^0.20.2
+  vm_storage:
+    path: ../vm_storage
+  vm_storyboard:
+    path: ../vm_storyboard
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.4.0
+  freezed: ^2.5.0
+  injectable_generator: ^2.6.0
+  mocktail: ^1.0.0
+  shared_preferences: ^2.3.0
+
+flutter:
+  uses-material-design: true

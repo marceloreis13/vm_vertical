@@ -1,0 +1,10 @@
+targets:
+  $default:
+    sources:
+      exclude:
+        # CocoaPods symlinks into plugin sources (created by `pod install`
+        # when running `example/`) are not part of this package's own
+        # source set and are not resolvable in this build context.
+        - example/ios/**
+        - example/macos/**
+        - example/web/**
