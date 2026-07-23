@@ -1,0 +1,24 @@
+name: vm_notifications_example
+description: Standalone visual example for vm_notifications.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get_it: ^8.0.0
+  vm_notifications:
+    path: ../
+  vm_storyboard:
+    path: ../../vm_storyboard
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
