@@ -36,6 +36,7 @@ com mocks quando preciso). Todos os apps compartilham a mesma identidade visual
 |---|---------|-------|
 | 15 | `15-app-weather.md` | App de clima — Open-Meteo (aberta), tema **padrão**, sem auth |
 | 16 | `16-app-news.md` | App de notícias — Spaceflight News API (aberta), tema **sobrescrito** + vm_auth |
+| 17 | `17-app-showcase.md` | App vitrine — importa e navega pela demo de cada módulo `vm_*`, sem reescrever exemplos |
 
 ## Ordem de execução sugerida
 
@@ -51,6 +52,9 @@ Respeita as dependências entre módulos:
    paleta/logo, e cobrem casos complementares: **app_weather usa os tokens padrão** do
    storyboard (out-of-the-box) e **app_news sobrescreve** os tokens (paleta/fontes/logo
    próprios); ambos com API aberta, com/sem auth.
+6. **`17`** — app_showcase, incremental: cada módulo entra na vitrine assim que existe
+   (não precisa esperar a lista completa); importa a tela de demo de cada módulo direto
+   do `lib/` dele, sem reescrever exemplos (ver convenção em `module-scaffold.md`).
 
 ## Próxima leva (fora desta)
 

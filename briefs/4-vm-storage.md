@@ -33,6 +33,8 @@ App exemplo com CRUD de preferências e de um item seguro, demonstrando os três
 
 - Trocar backend não afeta consumidores.
 - Dados sensíveis nunca caem no store não seguro.
+- O desacoplamento das responsabilidades deve ser clara, a ponto da troca de tecnologias distintas nao afetar os comsumidores, por exemplo: Poder trocar a tecologia de um banco de dados local (Isar por exemplo) por um banco de dados via Firestore sem nenhum ou quase nenhuma friccao, imperceptivel para o consumidor.
+- Todos os apps/features que usarão este modulo poderão atuar como offline first, e entao os dados locais serão atualizados/sincronizados com dados remotos via deltas. Entao a construcao desse modulo tbm deverá cobrir estes casos.
 
 ## Fora de escopo
 

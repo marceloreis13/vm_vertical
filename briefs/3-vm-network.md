@@ -23,7 +23,7 @@ logging. Nenhum endpoint específico de app vive aqui.
 ## Standalone (`example/`)
 
 App exemplo que consome uma API pública (ou um mock server local) e exibe respostas,
-demonstrando sucesso, erro e retry.
+demonstrando sucesso, erro e retry. Devem existir exemplos de conexoes diversas como: Conexão direta (consumo de api publica), conexao com use de credenciais, conexao com o uso de bearer token, e outros tipos que existir que sejam relevantes e tenham api publica para usarmos.
 
 ## Dependências
 

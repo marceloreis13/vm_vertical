@@ -9,7 +9,8 @@ metadata:
 # Testing (vm_core)
 
 How every module is tested. Complements `vm-clean-architecture` (layers), `vm-dart-idioms`
-(how to write it) and `vm-ddd-modular` (domain). Copy from `references/sample_test.dart`.
+(how to write it), `vm-ddd-modular` (domain) and `vm-ui-composition` (Screen/Sections/Views).
+Copy from `references/sample_test.dart`.
 
 ## Test per layer
 
@@ -18,7 +19,15 @@ How every module is tested. Complements `vm-clean-architecture` (layers), `vm-da
 - **data** → unit tests. Test repository implementations with a **fake** datasource: verify
   model→entity mapping and that IO errors become the right domain `Failure` (Result is `Err`).
 - **presentation** → widget/bloc tests. Test the Cubit with `bloc_test` (emitted state
-  sequence) using a fake repository. Test widgets with `flutter_test`, pumping a fake Cubit.
+  sequence) using a fake repository. Within presentation, the test shape follows the
+  responsibility tier (see `vm-ui-composition`):
+  - **Views** → `flutter_test`, pumped standalone with plain constructor args — no
+    `BlocProvider`, no fake Cubit. This is the natural golden-test surface.
+  - **Sections** → `flutter_test`, pumped with a fake/mocked Cubit via `BlocProvider.value`,
+    exercising each `State` variant (loading/loaded/error/...). Assert composition given
+    state, and Cubit events dispatched on interaction.
+  - **Screen** → a couple of shallow integration widget tests with a fake Cubit, confirming
+    Sections are wired correctly. Not an exhaustive golden surface.
 - **vm_storyboard components** → **golden tests** (`matchesGoldenFile`), covering light/dark
   themes and key states (loading/empty/error).
 

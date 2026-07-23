@@ -10,7 +10,8 @@ metadata:
 
 How every `vm_*` module and app feature is layered in this project. This encodes the
 `module-conventions` spec as concrete coding guidance. Pair with `vm-dart-idioms` (how to
-write the Dart) and `vm-ddd-modular` (how to model the domain and module boundaries).
+write the Dart), `vm-ddd-modular` (how to model the domain and module boundaries), and
+`vm-ui-composition` (how `presentation/<feature>/` is organized internally: Screen/Sections/Views).
 
 Copy the skeleton in `references/` and fill it in. Do not invent a different structure.
 
@@ -57,7 +58,8 @@ lib/
 ### presentation (Flutter)
 - **Cubit**: orchestrates use cases/repositories, exposes state. No business rules of its own.
 - **State**: a sealed/Freezed union (initial, loading, loaded, error). No mutable fields.
-- **Widgets**: render state, dispatch intents. No data access, no mapping, no IO.
+- **Widgets**: render state, dispatch intents. No data access, no mapping, no IO. Internally
+  organized as Screen/Sections/Views by responsibility — see `vm-ui-composition`.
 
 ## DI and public API
 
@@ -92,5 +94,6 @@ lib/
 - `references/structure.md` — the folder tree to reproduce.
 - `references/domain.dart` — entity, value object, failure, `Result`, repository interface.
 - `references/data.dart` — model + mapper + repository implementation.
-- `references/presentation.dart` — cubit + sealed state + widget.
+- `references/presentation.dart` — cubit + sealed state + Screen/Section/View split (see
+  `vm-ui-composition` for the full convention).
 - `references/registration.dart` — DI registration function + barrel example.

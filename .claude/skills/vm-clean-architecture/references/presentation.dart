@@ -35,35 +35,44 @@ class ArticleCubit extends Cubit<ArticleState> {
   }
 }
 
-// --- <feature>_view.dart ---------------------------------------------------
+// --- screen/<feature>_screen.dart -------------------------------------------
+//
+// Screen: entry point. Binds the Cubit, composes Sections. See
+// vm-ui-composition for the Screen/Sections/Views split this mirrors.
 
-/// Widget renders state via exhaustive pattern matching. It never touches a
-/// repository, datasource or mapper. Visuals come from vm_storyboard.
-class ArticleView extends StatelessWidget {
-  const ArticleView({super.key});
+class ArticleScreen extends StatelessWidget {
+  const ArticleScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const ArticleSection();
+  }
+}
+
+// --- sections/article_section.dart ------------------------------------------
+//
+// Section: reads this feature's State, decides what to render. Never
+// promoted or reused by another feature.
+
+class ArticleSection extends StatelessWidget {
+  const ArticleSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ArticleCubit, ArticleState>(
       builder: (context, state) => switch (state) {
         ArticleInitial() || ArticleLoading() => const _Loading(),
-        ArticleLoaded(:final articles) => _List(articles: articles),
+        ArticleLoaded(:final articles) => ArticleListView(articles: articles),
         ArticleError(:final failure) => _Error(failure: failure),
       },
     );
   }
 }
 
-// Placeholders — in a real feature these use vm_storyboard components.
+// Placeholders — in a real feature these use vm_storyboard components
+// (VmLoadingView / VmErrorView), so they typically aren't hand-written here.
 class _Loading extends StatelessWidget {
   const _Loading();
-  @override
-  Widget build(BuildContext context) => const SizedBox.shrink();
-}
-
-class _List extends StatelessWidget {
-  const _List({required this.articles});
-  final List<Article> articles;
   @override
   Widget build(BuildContext context) => const SizedBox.shrink();
 }
@@ -71,6 +80,19 @@ class _List extends StatelessWidget {
 class _Error extends StatelessWidget {
   const _Error({required this.failure});
   final Failure failure;
+  @override
+  Widget build(BuildContext context) => const SizedBox.shrink();
+}
+
+// --- views/article_list_view.dart -------------------------------------------
+//
+// View: plain parameters only, no Cubit/State/repository. Reusable elsewhere
+// unchanged — promote to vm_storyboard or a shared package if it repeats in
+// a second feature.
+
+class ArticleListView extends StatelessWidget {
+  const ArticleListView({required this.articles, super.key});
+  final List<Article> articles;
   @override
   Widget build(BuildContext context) => const SizedBox.shrink();
 }
